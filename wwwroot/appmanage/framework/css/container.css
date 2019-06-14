@@ -1,0 +1,266 @@
+/* header */
+.header {
+  display: flex;
+  justify-content: flex-start;
+  color: #fff;
+}
+.logo {
+  width: 200px;
+}
+
+.header-right {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header-icon i {
+  margin-left: 10px;
+  color: #fff!important;
+}
+
+.user-menu {
+  color: #fff!important;
+  cursor: pointer;
+}
+
+.search-input {
+  width: 140px;
+  margin-right: 10px;
+}
+
+.search-input.main--serach input {
+  border-color: #498FE0;
+  color: #fff;
+}
+
+.search-input.main--serach input:focus {
+  border-color: #fff;
+}
+
+.icon-position {
+  position: absolute;
+  right: 1px;
+  top: 0;
+}
+
+.input-not-focus input {
+  border: none;
+  padding: 0;
+}
+
+/* 整体布局容器 */
+.content-container {
+  height: calc(100vh - 40px);
+}
+
+.main-container {
+  padding: 0!important;
+  max-height: 100%;
+  flex-grow: 1;
+  transition: width .4s;
+  background: #efefef;
+  position: relative;
+}
+
+.aside-container {
+  flex-grow: 0;
+  transition: width .4s;
+  overflow: visible!important;
+  position: relative;
+}
+
+/* 左侧菜单容器 start */
+.main-container .flex-arrow {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: 10;
+  background: rgba(0, 0, 0, .5);
+  transform: translateY(-50%);
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  line-height: 20px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  color: #eeeeee;
+  cursor: pointer;
+  transition: all .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container .flex-arrow:hover {
+  width: 20px;
+  height: 40px;
+  right: -20px;
+}
+
+.aside-container.close {
+  width: 0!important;
+  overflow-x: hidden!important;
+}
+
+.aside-container .el-menu--collapse {
+  width: auto!important;
+  border: none;
+}
+
+.aside-container i {
+  display: inline!important;
+}
+
+
+.aside-container .second-menus,
+.aside-container .second-menus .el-submenu__title {
+  background-color: #535c6a!important;
+}
+
+.aside-container .third-menus,
+.aside-container .third-menus .el-submenu__title {
+  background-color: #9298a1!important;
+}
+
+.aside-container .first-menus > .el-submenu__title:hover {
+  background-color: #1357b8!important;
+}
+
+.aside-container .second-menus.el-menu-item:hover,
+.aside-container .second-menus > .el-submenu__title:hover {
+  background-color: #3b75c2!important;
+}
+
+.aside-container .third-menus.el-menu-item:hover {
+  background-color: #7099d0!important;
+}
+
+.aside-container .el-menu-item {
+  position: relative;
+}
+
+.second-menus .menu-ding,
+.third-menus .menu-ding {
+  color: #fff!important;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 12px;
+}
+
+.el-menu--popup-right-start {
+  margin-left: 0!important;
+  margin-right: 0!important;
+}
+/* 
+.used-record-item {
+  line-height: 30px;
+  padding: 0 22px 0 6px;
+  border: 1px solid #E7E8E9;
+  background: #F9F9F9;
+  border-radius: 4px;
+  display: inline-block;
+  margin-right: 5px;
+  cursor: pointer;
+  color: #999999;
+}
+
+.used-record-item .icon-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #CCCCCC;
+  display: inline-block;
+}
+
+.used-record-item.active {
+  background: #FFFFFF;
+  color: #333333;
+  border-color: #E7E8E9;
+}
+
+.used-record-item.active .icon-circle {
+  background: #1B73D8;
+} */
+
+.ych-page-container {
+  padding: 0 10px;
+  height: calc(100% - 38px);
+  position: relative;
+  overflow-y: auto;
+}
+
+
+/* 页面标签 */
+.page-tags {
+  position: relative;
+  width: 100%;
+}
+
+.page-tags .tags-container {
+  max-width: calc(100% - 50px);
+  height: 38px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.page-tags .tags-container > span {
+  background-color: #F9F9F9;
+  border-color: #E7E8E9;
+  color: #999999;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.page-tags .tags-container > span:first-child {
+  margin-left: 10px;
+}
+
+.page-tags .tags-container > span .el-icon-close {
+  color: #999999;
+}
+
+.page-tags .tags-container > span .el-icon-close:hover {
+  background-color: transparent;
+  color: #666666;
+}
+
+.page-tags .tags-container > span .icon-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #CCCCCC;
+  display: inline-block;
+  margin-right: 3px;
+}
+
+.page-tags .tags-container > span.active {
+  background-color: #fff;
+  border-color: #e7e8e9;
+  color: #333333;
+}
+
+.page-tags .tags-container > span.active .icon-circle{
+  background-color: #1B73D8;
+}
+
+.main-container .close-all {
+  position: absolute;
+  top: 4px;
+  right: 10px;
+  z-index: 10;
+}
+
+.main-container .close-all button {
+  width: 32px;
+  padding: 0!important;
+  height: 32px;
+}
+
+.main-container .close-all i {
+  font-size: 16px;
+}

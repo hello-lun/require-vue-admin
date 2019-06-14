@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="/framework/lib/require.min.js"></script>
+    <script src="/framework/config/config.js"></script>
+    <script src="/framework/config/require.config.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        //require(['/framework/lib/oidc-client.js'], function (oidc) {
+        //    new oidc.UserManager().signinRedirectCallback().then(function () {
+        //        window.location = "/index.html";
+        //    });
+        //});
+
+        require(['/framework/core/usermanager.js'], function (usermanager) {
+            usermanager.manager.signinRedirectCallback().then(function () {
+                window.location = globalConfig.baseUrl + "/index.html";
+            });
+        });
+        //var userManager = require('http://localhost:20001/framework/core/UserManager.js');
+        //userManager.signinRedirectCallback().then(function () {
+        //    window.location = "/index.html";
+        //});
+
+        //new UserManager().signinRedirectCallback().then(function(){
+        //    window.location = "/index.html";
+        //});
+    </script>
+</body>
+</html>

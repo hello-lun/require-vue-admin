@@ -1,0 +1,18 @@
+.ych-report-header .el-form-item--mini.el-form-item {
+    margin-bottom: 10px;
+    margin-right: 0;
+}
+
+.ych-header__setting {
+    padding: 7px 8px;
+}
+
+.ych-header__setting i {
+    transform: rotate(90deg);
+    transform-origin: center;
+}
+
+.ych-header__setting-list i {
+    width: 13px; 
+    display: inline-block;
+}

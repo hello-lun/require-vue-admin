@@ -1,0 +1,115 @@
+﻿<html>
+  <head>
+    <meta charset="utf-8">
+    <title>测试兼容性</title>
+    <link rel="stylesheet" href="./lib/element/css/index.css">
+    <link rel="stylesheet" href="./css/index.css">
+  </head>
+  <body>
+    <div id="app">
+    </div>
+    <script src="../jquery-1.10.2.min.js"></script>
+    <script src="./lib/vue/vue.js"></script>
+    <script src="./lib/element/js/index.js"></script>
+    <script src="./js/ych-report-global.conf.js"></script>
+    <script src="./js/ych-custom-report.js"></script>
+    <script>
+      $YchCustomReport({
+        fields: [
+          {
+            field: 'OwnedBusiness.ID',
+            type: 'leaguer'
+          },
+          {
+            field: 'PayType.PayName',
+            type: 'custom.dropdown',
+            source: 'leaguerLevel'
+          },
+          {
+            field: 'UpdateTime',
+            label: '更新时间',
+            dataType: 'DateTime',
+            type: 'daterange',
+            show: false,
+            symbols: ['rg']
+          }
+        ],
+        groups: [
+          {
+            name: '支付日志',
+            tableName: 'Mall_PayLog',
+            showStat: true,
+            columns: [
+              {
+                prop: 'id',
+                field: "ID",
+                name: '商户ID',
+                show: false
+              }, {
+                prop: 'pt',
+                field: "PayType.PayName",
+                name: '支付方式名'
+              }, {
+                prop: 'pns',
+                field: "PayNumber",
+                name: '支付码'
+              }, {
+                prop: 'ms',
+                field: "Money",
+                name: '金额',
+                stat: 'sum'
+              }, {
+                prop: 'updateTime',
+                field: "UpdateTime",
+                name: '更新时间'
+              }
+            ],
+            btnArray: [
+              {
+                name: '新增',
+                clickFunc: function(rows, finish) {
+                  console.log(rows);
+                  setTimeout(function() {
+                    finish();
+                  }, 3000);
+                }
+              }
+            ],
+          },
+          {
+            name: '支付日志2',
+            tableName: 'Mall_PayLog',
+            selection: false,
+            showStat: true,
+            columns: [
+              {
+                prop: 'pt',
+                field: 'PayType.PayName',
+                name: '支付方式名2',
+                groupBy: "group"
+              }, {
+                prop: 'ms',
+                field: "Money",
+                name: '金额',
+                groupBy: 'sum',
+                stat: 'sum'
+              }
+            ]
+          }
+        ],
+        enums: {
+          test: {
+            0: '代币',
+            1: '金币',
+            2: '预存款'
+          },
+          payType: {
+            '现金': '现金',
+            '支付宝': '支付宝',
+            '微信支付': '微信支付'
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

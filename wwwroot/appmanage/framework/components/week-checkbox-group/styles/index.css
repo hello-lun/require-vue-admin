@@ -1,0 +1,36 @@
+.week-checkbox-group {
+  padding: 0 5px;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin-bottom: 0;
+}
+
+.week-checkbox-group__container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.week-checkbox-group .el-card__body {
+  padding: 0;
+}
+
+.week-checkbox-group__list {
+  flex: 1;
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+}
+
+.week-checkbox-group__list .el-checkbox+.el-checkbox {
+  margin-left: 10px;
+}
+
+.week-checkbox-group__list .el-checkbox__label {
+  padding-left: 5px;
+}
+
+.week-checkbox-group__change-btn .el-icon-sort {
+  transform: rotate(90deg);
+}

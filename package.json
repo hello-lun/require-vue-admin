@@ -1,0 +1,31 @@
+{
+  "name": "yuntai",
+  "version": "2.0.0",
+  "description": "油菜花芸苔项目后台系统",
+  "main": "login.js",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "keywords": [
+    "yuntai",
+    "vue"
+  ],
+  "author": "YCH-FE",
+  "license": "",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "element-ui": "^2.4.0",
+    "fabric": "^2.3.0",
+    "lodash": "^4.17.4",
+    "requirejs": "^2.3.5",
+    "vue": "^2.5.13",
+    "vue-quill-editor": "^3.0.5",
+    "vue-router": "^2.8.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.5.0",
+    "gulp-livereload": "^4.0.0",
+    "http-proxy-middleware": "^0.18.0"
+  }
+}

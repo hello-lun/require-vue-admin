@@ -1,0 +1,13 @@
+.org-tree-item {
+  display: flex;
+  align-items: center;
+}
+
+.org-tree-item:hover .ych-icon-caidan {
+  visibility: visible!important;
+}
+
+.organization-tree .tree-search-input {
+  width: 90%;
+  margin: 10px auto;
+}

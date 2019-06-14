@@ -1,0 +1,36 @@
+.ych-state-tag {
+  padding: 2px 0;
+  text-align: left;
+}
+
+.ych-state-tag__circular {
+  display: inline-block;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.ych-state-tag__circular.is-bigger {
+  width: 15px;
+  height: 15px;
+}
+
+.ych-state-tag__circular.primary {
+  background-color: #1B73D8;
+}
+
+.ych-state-tag__circular.success {
+  background-color: #00B75B;
+}
+
+.ych-state-tag__circular.info {
+  background-color: #909399;
+}
+
+.ych-state-tag__circular.warning {
+  background-color: #FF9900;
+}
+
+.ych-state-tag__circular.danger {
+  background-color: #F04134;
+}

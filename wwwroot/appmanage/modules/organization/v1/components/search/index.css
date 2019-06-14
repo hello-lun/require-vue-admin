@@ -1,0 +1,22 @@
+.search-input {
+  position: relative;
+  min-height: 28px;
+  overflow: hidden;
+  text-align: right;
+}
+
+.search-input input {
+  background-color: transparent;
+  border-radius: 20px;
+  transition: all .5s;
+}
+
+.search-input .search-icon {
+  width: 20px;
+  line-height: 26px;
+  cursor: pointer;
+}
+
+.search-input .input-not-focus {
+  width: 20px;
+}

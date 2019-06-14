@@ -1,0 +1,32 @@
+.el-form--inline .el-form-item--mini .el-form-item__content,
+.el-form--inline .el-range-editor--mini.el-input__inner,
+.el-form--inline .el-date-editor.el-input, 
+.el-form--inline .el-date-editor.el-input__inner,
+.el-form--inline .el-input-number--mini,
+.el-form--inline .ych-input-number {
+  width: 180px;
+}
+
+.el-form--inline .el-input-number--mini,
+.el-form--inline .el-select--mini,
+.el-form--inline .el-radio-group,
+.el-form--inline .el-cascader--mini {
+  width: 100%;
+}
+
+.el-form--inline  .ych-form-item--double .el-form-item__content{
+  width: 452px;
+}
+
+.el-form--inline .el-range-editor.el-input__inner {
+  padding: 3px 5px;
+}
+
+.el-form--inline .el-date-editor .el-range__icon {
+  display: none;
+}
+
+.el-form--inline .el-date-editor .el-range__close-icon {
+  width: 18px;
+}
+

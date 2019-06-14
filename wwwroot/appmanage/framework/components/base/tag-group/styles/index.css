@@ -1,0 +1,20 @@
+.ych-tag-group .el-tag {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.ych-tag-group__btn-new-tag {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    /* height: 32px;
+    line-height: 30px; */
+    /* padding-top: 0;
+    padding-bottom: 0; */
+}
+
+.ych-tag-group__input-new-tag {
+    width: 90px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    vertical-align: bottom;
+}

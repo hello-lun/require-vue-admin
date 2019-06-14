@@ -1,0 +1,114 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\framework\api\BaseModule.js" />
+    <None Include="wwwroot\framework\api\Common.js" />
+    <None Include="wwwroot\framework\api\customer\CustomerManage.js" />
+    <None Include="wwwroot\framework\api\customer\ModuleManage.js" />
+    <None Include="wwwroot\framework\api\customer\StoreManage.js" />
+    <None Include="wwwroot\framework\api\File\file.js" />
+    <None Include="wwwroot\framework\api\File\v1\File.js" />
+    <None Include="wwwroot\framework\api\organization\Department.js" />
+    <None Include="wwwroot\framework\api\organization\FunctionalAuth.js" />
+    <None Include="wwwroot\framework\api\organization\OrganizationStucture.js" />
+    <None Include="wwwroot\framework\api\organization\User.js" />
+    <None Include="wwwroot\framework\api\workbentch\v1\Approve.js" />
+    <None Include="wwwroot\framework\api\workbentch\v1\Notice.js" />
+    <None Include="wwwroot\framework\api\workbentch\v1\Task.js" />
+    <None Include="wwwroot\framework\components\button\index.js" />
+    <None Include="wwwroot\framework\components\card\index.js" />
+    <None Include="wwwroot\framework\components\cors-token\core.js" />
+    <None Include="wwwroot\framework\components\index.js" />
+    <None Include="wwwroot\framework\components\main-menu\index.js" />
+    <None Include="wwwroot\framework\components\organization-tree\index.js" />
+    <None Include="wwwroot\framework\components\permission-list\index.js" />
+    <None Include="wwwroot\framework\components\search\index.js" />
+    <None Include="wwwroot\framework\components\side-bar-form\index.js" />
+    <None Include="wwwroot\framework\components\side-bar\index.js" />
+    <None Include="wwwroot\framework\components\tags-page\index.js" />
+    <None Include="wwwroot\framework\components\ych-editor\index.js" />
+    <None Include="wwwroot\framework\components\ych-form\index.js" />
+    <None Include="wwwroot\framework\components\ych-pagination\index.js" />
+    <None Include="wwwroot\framework\components\ych-table-column-operation\index.js" />
+    <None Include="wwwroot\framework\components\ych-upload\index.js" />
+    <None Include="wwwroot\framework\core\config.js" />
+    <None Include="wwwroot\framework\core\global.js" />
+    <None Include="wwwroot\framework\core\http.js" />
+    <None Include="wwwroot\framework\core\plugin.js" />
+    <None Include="wwwroot\framework\core\usermanager.js" />
+    <None Include="wwwroot\framework\css\element-variables.scss" />
+    <None Include="wwwroot\framework\directive\has.js" />
+    <None Include="wwwroot\framework\lib\axios.min.js" />
+    <None Include="wwwroot\framework\lib\css.min.js" />
+    <None Include="wwwroot\framework\lib\custom-report\js\ych-custom-report.js" />
+    <None Include="wwwroot\framework\lib\custom-report\js\ych-export-notification.js" />
+    <None Include="wwwroot\framework\lib\custom-report\js\ych-report-global.conf.js" />
+    <None Include="wwwroot\framework\lib\custom-report\Readme.md" />
+    <None Include="wwwroot\framework\lib\element-ui\js\index.js" />
+    <None Include="wwwroot\framework\lib\es6-promise.auto.min.js" />
+    <None Include="wwwroot\framework\lib\lodash.min.js" />
+    <None Include="wwwroot\framework\lib\oidc-client.js" />
+    <None Include="wwwroot\framework\lib\quill-editor\quill.min.js" />
+    <None Include="wwwroot\framework\lib\quill-editor\vue-quill-editor.js" />
+    <None Include="wwwroot\framework\lib\require.min.js" />
+    <None Include="wwwroot\framework\lib\vue\vue.js" />
+    <None Include="wwwroot\framework\lib\vue\vue.min.js" />
+    <None Include="wwwroot\framework\mixins\sideBarForm.js" />
+    <None Include="wwwroot\framework\util\file.js" />
+    <None Include="wwwroot\framework\util\tool.js" />
+    <None Include="wwwroot\modules\customer\v1\views\customer-manage\add.js" />
+    <None Include="wwwroot\modules\customer\v1\views\customer-manage\edit.js" />
+    <None Include="wwwroot\modules\customer\v1\views\customer-manage\index.js" />
+    <None Include="wwwroot\modules\customer\v1\views\module-manage\add.js" />
+    <None Include="wwwroot\modules\customer\v1\views\module-manage\edit.js" />
+    <None Include="wwwroot\modules\customer\v1\views\module-manage\index.js" />
+    <None Include="wwwroot\modules\customer\v1\views\store-manage\index.js" />
+    <None Include="wwwroot\modules\customer\v1\views\store-manage\setmodule.js" />
+    <None Include="wwwroot\modules\customer\v1\views\store-manage\store-add.js" />
+    <None Include="wwwroot\modules\customer\v1\views\store-manage\store-edit.js" />
+    <None Include="wwwroot\modules\organization\v1\components\main-container\authority-list.js" />
+    <None Include="wwwroot\modules\organization\v1\components\main-container\customer-list.js" />
+    <None Include="wwwroot\modules\organization\v1\components\main-container\department-add.js" />
+    <None Include="wwwroot\modules\organization\v1\components\main-container\department-edit.js" />
+    <None Include="wwwroot\modules\organization\v1\components\main-container\department-index.js" />
+    <None Include="wwwroot\modules\organization\v1\components\main-container\department-list.js" />
+    <None Include="wwwroot\modules\organization\v1\components\main-container\organization-index.js" />
+    <None Include="wwwroot\modules\organization\v1\components\main-container\position-add.js" />
+    <None Include="wwwroot\modules\organization\v1\components\main-container\position-edit.js" />
+    <None Include="wwwroot\modules\organization\v1\components\main-container\position-list.js" />
+    <None Include="wwwroot\modules\organization\v1\components\main-container\user-add.js" />
+    <None Include="wwwroot\modules\organization\v1\components\main-container\user-edit.js" />
+    <None Include="wwwroot\modules\organization\v1\components\main-container\user-list.js" />
+    <None Include="wwwroot\modules\organization\v1\components\organization-tree\index.js" />
+    <None Include="wwwroot\modules\organization\v1\components\organization-tree\user-list-trees.js" />
+    <None Include="wwwroot\modules\organization\v1\components\organization-tree\user-position-list-tree.js" />
+    <None Include="wwwroot\modules\organization\v1\components\search\index.js" />
+    <None Include="wwwroot\modules\organization\v1\views\orginzation\index.js" />
+    <None Include="wwwroot\modules\workbentch\v1\components\notice-create.js" />
+    <None Include="wwwroot\modules\workbentch\v1\components\notice-detail.js" />
+    <None Include="wwwroot\modules\workbentch\v1\views\index\index.js" />
+    <None Include="wwwroot\modules\workbentch\v1\views\index\query-conditions.js" />
+    <None Include="wwwroot\modules\workbentch\v1\views\index\table-container.js" />
+  </ItemGroup>
+
+</Project>

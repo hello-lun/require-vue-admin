@@ -1,0 +1,26 @@
+.el-container .el-main{
+    padding: 20px;
+}
+
+.el-collapse{
+    background:#EFEFEF;
+}
+
+.el-collapse .el-collapse-item{
+    background:#EFEFEF;
+
+}
+
+.el-checkbox-group{
+    
+}
+
+.checkbox-item{
+    height: 40px;
+    /* background: blue; */
+}
+
+
+.el-icon-arrow-left:before {
+    content: "\E604";
+}

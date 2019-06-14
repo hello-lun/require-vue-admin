@@ -1,0 +1,44 @@
+.goods-info__img {
+    width: 82px;
+}
+
+.goods-info__info-cell small {
+    display: inline-block;
+}
+
+.goods-info__info-cell-sub {
+    margin-top: 10px;
+}
+
+.goods-info__info-cell-sub {
+    margin-top: 10px;
+}
+
+.goods-info__dialog i {
+    width: 140px;
+    height: 140px;
+    font-size: 120px;
+    cursor: pointer;
+    line-height: 140px;
+    border: 1px solid;
+}
+
+.goods-info__dialog i:hover {
+    color: #1B73D8;
+}
+
+.goods-info__dialog-col {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.goods-info__dialog-col .ych-color-icon {
+    width: 120px;
+    height: 120px;
+}
+
+.sidebar-goods-add__sale-setting .el-input-group__append {
+    width: 35px;
+}

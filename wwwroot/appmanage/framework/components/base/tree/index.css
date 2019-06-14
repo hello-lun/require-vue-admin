@@ -1,0 +1,57 @@
+.ych-tree {
+  width: 100%;
+  position: relative;
+  padding-top: 48px;
+  box-sizing: border-box;
+}
+
+/* .ych-tree .el-tree {
+  margin-top: 28px;
+} */
+
+.ych-tree__item {
+  flex-grow: 1;
+  max-height: 26px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.ych-tree__menu {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.ych-tree__item-i {
+  color: #1B73D8
+}
+
+.ych-tree__text {
+  line-height: 26px;
+  padding: 0 5px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.ych-tree__menu-icon {
+  color: #1B73D8;
+  display: none;
+}
+
+.ych-tree__item:hover .ych-icon-caidan,
+.ych-tree__menu-icon--hover {
+  display: inline-block!important;
+}
+
+.ych-tree .ych-tree__search-input {
+  width: 100%;
+  margin: 10px auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

@@ -1,0 +1,12 @@
+.ych-tips {
+  cursor: pointer;
+}
+
+.ych-tips .el-icon-question {
+  font-size: 18px;
+  color: #CCCCCC;
+}
+
+.ych-tips .el-icon-question:hover {
+  color: #1B73D8;
+}

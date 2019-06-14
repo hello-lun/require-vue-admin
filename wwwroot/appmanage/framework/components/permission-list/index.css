@@ -1,0 +1,56 @@
+.permission-list {
+  border: none;
+}
+
+.permission-list .el-collapse-item__header {
+  background-color: #efefef;
+  padding-left: 10px;
+  border-bottom: 1px solid #ebeef5;
+}
+
+.permission-list .el-collapse-item__header,
+.permission-list .el-collapse-item__arrow {
+  height: 30px;
+  line-height: 30px;
+}
+
+.permission-list .permission-list__operation {
+  display: inline-block;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+}
+
+.permission-list .permission-modules__func {
+  line-height: 30px;
+  height: 30px;
+  border-bottom: 1px solid #ebeef5;
+}
+
+.permission-list .permission-modules__func .el-col-4 label {
+  width: 100%;
+  padding-left: 10px;
+}
+
+.permission-list__operation label {
+  width: 25%;
+  display: inline-block;
+  margin-left: 0px;
+  border-left: 1px solid #6995fd;
+  box-sizing: border-box;
+  padding-left: 10px;
+}
+
+.permission-list__operation label.el-checkbox + .el-checkbox {
+  margin-left: 0px;
+}
+
+.permission-list .el-collapse-item__content {
+  border-left: 1px solid #ebeef5;
+  border-right: 1px solid #ebeef5;
+  padding-bottom: 0;
+}
+
+.permission-list  .el-collapse-item__wrap {
+  border-bottom: none;
+}

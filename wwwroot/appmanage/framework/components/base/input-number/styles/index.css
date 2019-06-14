@@ -1,0 +1,45 @@
+.ych-input-number {
+  line-height: normal;
+  display: inline-table;
+  width: 100%;
+  border-collapse: separate;
+}
+
+.el-form-item--mini .ych-input-number  {
+  font-size: 12px;
+}
+
+.ych-input-number--group input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.ych-input-number__input {
+  display: table-cell;
+}
+
+.ych-input-number__append {
+  background-color: #f5f7fa;
+  color: #909399;
+  vertical-align: middle;
+  display: table-cell;
+  /* position: relative; */
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  white-space: nowrap;
+  padding: 0 10px;
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  box-sizing: border-box;
+  /* width: 40px; */
+}
+
+.ych-input-number__append .el-input__inner {
+  border: none;
+  background-color: transparent;
+  padding-right: 0;
+  padding-left: 0;
+  line-height: 26px;
+  height: 26px;
+}

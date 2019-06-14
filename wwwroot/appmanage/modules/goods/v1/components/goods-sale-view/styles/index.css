@@ -1,0 +1,201 @@
+/* 整体
+------------- */
+.goods-sale-view {
+  /* margin-top: 100px; */
+  width: 700px;
+}
+
+/* 商品选择列表 */
+.goods-sale-view__goods-list,
+.goods-view-setting__left {
+  width: 240px;
+}
+
+.goods-sale-view__container,
+.goods-view-setting__container {
+  width: 100%;
+  height: 350px;
+}
+
+.goods-sale-view__container .el-card__header,
+.goods-view-setting__container .el-card__header {
+  padding: 0;
+}
+
+.goods-sale-view__class {
+  width: 100%;
+  border: none;
+}
+
+.goods-sale-view__class .el-cascader__label {
+  text-align: center;
+}
+
+.goods-sale-view__class input {
+  background-color: #f5f7fa;
+  text-align: center;
+}
+
+.goods-sale-view__class input {
+  border: none;
+}
+
+.goods-sale-view__goods-list center, 
+.goods-view-setting center {
+  padding: 5px 0;
+}
+
+.goods-sale-view__row {
+  align-items: stretch;
+}
+
+.goods-sale-view__operation-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.goods-sale-view__operation-btn > .el-row:last-child {
+  margin-top: 20px;
+}
+
+/* 视图设置 */
+/* .goods-view-setting {
+  display: flex;
+  justify-content: space-between;
+} */
+
+.goods-view-setting__main {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.goods-view-setting__footer {
+  margin-top: 20px;
+}
+
+.goods-view-setting__header {
+  background-color: #f5f7fa;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  width: 100%;
+  font-size: 12px;
+}
+
+.goods-view-setting .ych-tree {
+  height: 270px;
+  overflow: auto;
+}
+
+.goods-view-setting__dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.goods-view-setting__dropdown i {
+  color: #c0c4cc;
+  font-size: 13px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.goods-view-setting__dropdown-item {
+  width: 240px;
+  box-sizing: border-box;
+  padding-top: 2px!important;
+  padding-bottom: 2px!important;
+}
+
+.goods-view-setting__dropdown-item--plus {
+  text-align: right;
+}
+
+.goods-view-setting__dropdown-item button {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.goods-view-setting__dropdown-item-row {
+  width: 100%;
+  display: inline-flex;
+}
+
+.goods-view-setting__view-name,
+.goods-view-setting__view-btns {
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.goods-view-setting__view-name {
+  flex: 1;
+}
+
+.goods-view-setting__view-btns {
+  width: 45px;
+}
+
+.goods-view-setting__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.goods-view-setting__right button {
+  padding: 7px 8px;
+}
+
+.goods-view-setting__right button:last-child {
+  margin: 5px 0 0 0;
+}
+
+.goods-view-setting__right button:first-child i {
+  transform: rotate(90deg);
+}
+
+.goods-view-setting__right button:last-child i {
+  transform: rotate(-90deg);
+}
+
+.goods-view-setting__left-footer {
+  height: 45px;
+  padding: 5px;
+  border-top: 1px solid #ebeef5;
+  margin: 0 -5px;
+  box-sizing: border-box;
+}
+
+.goods-view-setting__radio {
+  display: inline-flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.goods-view-setting__radio .el-radio__label {
+  width: 100%;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+.goods-view-setting__radio  .el-radio__input.is-checked + .el-radio__label {
+  color: inherit;
+}
+
+.goods-view-setting__goods-card {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 75px;
+  background-color: #000;
+  border-radius: 5px;
+}

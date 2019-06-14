@@ -1,0 +1,6 @@
+.sidebar-goods-add__sale-setting-dialog 
+.el-form-item:first-child 
+.el-form-item__content {
+  display: block;
+  margin-left: 35px;
+}

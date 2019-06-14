@@ -1,0 +1,121 @@
+.login-dialog {
+  padding: 0;
+}
+
+.login-dialog .el-dialog__header,
+.login-dialog .el-dialog__header {
+  display: none;
+}
+
+.login-dialog .el-tabs__nav-wrap {
+  padding-left: 0;
+}
+
+.login-dialog .el-tabs__nav {
+  width: 99.5%;
+  display: flex;
+  text-align: center;
+}
+
+.login-dialog .el-tabs__item {
+  flex: 1;
+}
+
+.login-dialog .el-dialog__body {
+  padding: 0;
+}
+
+.login-dialog .el-form-item {
+  padding-right: 0;
+}
+
+.login-dialog .el-tab-pane {
+  flex: 1;
+}
+
+.system-container {
+  width: 390px;
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.login-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.login-container .el-tabs__content {
+  padding: 15px 55px 0; 
+  height: 190px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.system-container .el-tabs__nav  {
+  width: 100%;
+  border: none!important;
+}
+
+.system-container .system-title p:first-child  {
+  color: #9bc5f1;
+  font-size: 20px;
+}
+
+.system-container .system-title {
+  margin-bottom: 10px;
+}
+
+.system-container .system-title p:last-child  {
+  font-size: 24px;
+}
+
+.system-container .el-tabs__item {
+  width: calc(100% / 3);
+  text-align: center;
+}
+
+.system-container .el-tabs__nav-wrap {
+  padding: 0!important;
+}
+
+.system-container .el-tabs__nav-prev,
+.system-container .el-tabs__nav-next {
+  display: none;
+}
+
+.login-footer {
+  width: 100%;
+  padding: 0 55px 20px;
+  box-sizing: border-box;
+}
+
+.system-container .el-button {
+  color: #efefef!important;
+  background: -webkit-linear-gradient(260deg, #11A5F9, #3B7FE0); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(260deg, #11A5F9, #3B7FE0); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(260deg, #11A5F9, #3B7FE0); /* Firefox 3.6 - 15 */
+  background: linear-gradient(260deg, #11A5F9, #3B7FE0); /* 标准的语法 */
+}
+
+.system-container .el-button:hover {
+  color: #ffffff!important;
+}
+
+.system-container .security-code {
+  width: calc(100% - 90px);
+}
+
+.system-container .special-item {
+  margin-top: 30px!important;
+}
+
+.system-container .security-code-btn {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.login-footer .login-btn {
+  width: 100%;
+}

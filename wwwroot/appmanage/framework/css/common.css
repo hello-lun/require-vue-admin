@@ -1,0 +1,93 @@
+[v-cloak] {
+  display: none;
+}
+
+[class*="ych-icon-"] {
+  font-family: "iconfont" !important;
+  font-size: 1.5em;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #606266;
+}
+
+.ych-color-icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+/* 颜色 */
+.color-primary {
+  color: #1B73D8;
+}
+.color-success {
+  color: #00B75B;
+} 
+.color-warning {
+  color: #FF9900;
+}
+.color-danger {
+  color: #F04134;
+}
+.color-info {
+  color: #909399;
+} 
+
+/* 字体大小 */
+h1,
+.font-size-20 {
+  font-size: 20px;
+}
+
+h2,
+.font-size-18 {
+  font-size: 18px;
+}
+
+h3,
+.font-size-16 {
+  font-size: 16px;
+}
+
+h4,
+.font-size-14 {
+  font-size: 14px;
+}
+
+
+
+@keyframes jiazai {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@-webkit-keyframes jiazai /* Safari 和 Chrome */
+{
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+.ych-icon-jiazai {
+  font-size: 30px!important;
+  animation: jiazai 2s linear infinite;
+  -webkit-animation: jiazai 2s linear infinite;
+}
+
+.single-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+}
+

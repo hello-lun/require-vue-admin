@@ -1,0 +1,16 @@
+.el-form-item {
+  padding-right: 20px;
+  margin-right: 0;
+  position: relative;
+}
+
+.el-form-item--mini.el-form-item {
+  margin-right: 0px;
+}
+
+.el-form-item .ych-tips {
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+}

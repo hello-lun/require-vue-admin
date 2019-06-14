@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./admin.css">
+    <script src="../framework/lib/require.min.js"></script>
+    <script src="../framework/config/config.js"></script>
+    <script src="../framework/config/require.config.js"></script>
+    <title>芸苔管理系统</title>
+</head>
+
+<body>
+    <div v-cloak id="app">
+        <el-container>
+            <div class="main" :style="{ height : pageHeight + 'px'}">
+                <div class="text">
+                    <span style="color: #CCCCCC;font-size: 20px;">Welcome !</span>
+                    <h2 style="margin: 5px 0 10px 0;color: #FFFFFF;">芸苔管理系统</h2>
+                </div>
+                <div class="login" v-show="changePage">
+                    <div class="toptext">
+                        <p>忘记密码</p>
+                    </div>
+                    <div class="maintext" style="margin-top: 20px;">
+                        <el-form :model="ResetText" status-icon :rules="Resetrules" ref="ResetText" size="small">
+                            <el-form-item prop="TenantID">
+                                <el-input type="text" placeholder="请输入门店号" v-model="ResetText.TenantID" auto-complete="off"></el-input>
+                            </el-form-item>
+
+                            <el-form-item prop="Telephone">
+                                <el-input type="text" placeholder="请输入手机号码" v-model="ResetText.Telephone" auto-complete="off"></el-input>
+                            </el-form-item>
+
+                            <transition name="bounce">
+                                <el-form-item class="firstLine" v-show="imageShow">
+                                    <el-tooltip class="item" effect="dark" content="输入图形码，然后获取手机验证码" placement="left-start">
+                                        <el-input type="text" placeholder="请输入图形验证码" v-model="ImgCodeText" auto-complete="off"></el-input>
+                                    </el-tooltip>
+                                    <div class="buttonstyle">
+                                        <img :src="imageUrl" width="92px" height="32px" />
+                                    </div>
+                                </el-form-item>
+                            </transition>
+
+                            <el-form-item prop="Code" class="firstLine">
+                                <el-input type="text" placeholder="请输入验证码" v-model="ResetText.Code" auto-complete="off"></el-input>
+                                <div class="buttonstyle">
+                                    <el-button type="primary" @click="changePagegetPhoneCode" :disabled="changeDisabled">{{getchangCodeText}}</el-button>
+                                </div>
+                            </el-form-item>
+
+                            <el-form-item prop="NewPassword">
+                                <el-input @keyup.enter.native="ResetSubmit('ResetText')" type="text" placeholder="请输入新密码" v-model="ResetText.NewPassword"
+                                    auto-complete="off"></el-input>
+                            </el-form-item>
+
+                            <p style="margin: 0;text-align: right;font-size: 13px;">
+                                <a href="#" @click="showElsePage('ResetText')">返回登陆页面 </a>
+                            </p>
+
+                            <el-button size="small" @click="ResetSubmit('ResetText')" type="primary" :disabled="resetDisabled" style="margin-top:18px;width: 100%;">重置</el-button>
+                        </el-form>
+                    </div>
+                </div>
+
+                <div class="login" v-show="tabPage">
+                    <el-tabs type="border-card" style="height: 100%;" class="tabStyle">
+                        <el-tab-pane label="账号密码登陆" style="padding: 0;">
+                            <div class="maintext">
+                                <el-form :model="adminLoginForm" status-icon size="small" :rules="adminLoginRules" ref="adminLoginForm">
+                                    <el-form-item prop="CustomerNum">
+                                        <el-input type="text" placeholder="请输入门店号" v-model="adminLoginForm.CustomerNum" auto-complete="off"></el-input>
+                                    </el-form-item>
+
+                                    <el-form-item prop="Account">
+                                        <el-input type="text" placeholder="请输入用户名" v-model="adminLoginForm.Account" auto-complete="off"></el-input>
+                                    </el-form-item>
+
+                                    <el-form-item prop="Password">
+                                        <el-input @keyup.enter.native="adminSubmit('adminLoginForm')" type="password" placeholder="请输入密码" v-model="adminLoginForm.Password"
+                                            auto-complete="off"></el-input>
+                                    </el-form-item>
+
+                                    <p style="margin: 0;text-align: right;font-size: 13px;">
+                                        <a href="#" @click="showElsePage('adminLoginForm')">忘记密码 ？</a>
+                                    </p>
+
+                                    <el-button @click="adminSubmit('adminLoginForm')" type="primary" size="small" :loading="adminDisabled" style="margin-top:15px;width: 100%;">登录</el-button>
+                                </el-form>
+                            </div>
+                        </el-tab-pane>
+                        <el-tab-pane label="员工卡登陆" style="padding-top: 30px;">
+                            <div class="maintext">
+                                <el-form size="small" :model="CarCodeLogin" status-icon :rules="CarCodeLoginRules" ref="CarCodeLogin">
+                                    <el-form-item prop="Account" class="firstLine">
+                                        <el-input type="text" placeholder="点击读取员工卡" v-model="CarCodeLogin.Account" auto-complete="off"></el-input>
+                                        <div class="buttonstyle">
+                                            <el-button type="primary">读取员工卡</el-button>
+                                        </div>
+                                    </el-form-item>
+
+                                    <el-form-item prop="Password">
+                                        <el-input @keyup.enter.native="CarCodeSubmit('CarCodeLogin')" type="password" placeholder="请输入密码" v-model="CarCodeLogin.Password"
+                                            auto-complete="off"></el-input>
+                                    </el-form-item>
+
+                                    <p style="margin: 0;text-align: right;font-size: 13px;">
+                                        <a href="#" @click="showElsePage('CarCodeLogin')">忘记密码？</a>
+                                    </p>
+
+                                    <el-button @click="CarCodeSubmit('CarCodeLogin')" type="primary" size="small" :disabled="CarCodeDisabled" style="margin-top:30px;width: 100%;">登录</el-button>
+                                </el-form>
+                            </div>
+                        </el-tab-pane>
+                        <el-tab-pane label="验证码登陆" style="padding-top: 30px;">
+                            <div class="maintext">
+                                <el-form :model="PhoneLogin" status-icon size="small " :rules="PhoneLoginRules" ref="PhoneLogin">
+
+                                    <el-form-item prop="Account">
+                                        <el-input type="text" placeholder="请输入手机号码" v-model="PhoneLogin.Account" auto-complete="off"></el-input>
+                                    </el-form-item>
+
+                                    <el-form-item class="firstLine" v-show="phoneLoginImageShow">
+                                        <el-input type="text" placeholder="请输入图形验证码" v-model="phoneLoginImgCodeText" auto-complete="off"></el-input>
+                                        <div class="buttonstyle">
+                                            <img :src="imageUrl" width="92px" height="32px" />
+                                        </div>
+                                    </el-form-item>
+
+                                    <el-form-item prop="Password" class="firstLine">
+                                        <el-input @keyup.enter.native="PhoneNumSubmit('PhoneLogin')" type="text" placeholder="请填写验证码" v-model="PhoneLogin.Password"
+                                            auto-complete="off"></el-input>
+                                        <div class="buttonstyle">
+                                            <el-button @click="GetPhoneCode" type="primary" :disabled="PhoneCodeDisabled">{{getCodeText}}</el-button>
+                                        </div>
+                                    </el-form-item>
+                                    <el-button @click="PhoneNumSubmit('PhoneLogin')" type="primary" size="small" :disabled="PhoneDisabled" style="margin-top:18px;width: 100%;">登录</el-button>
+                                </el-form>
+                            </div>
+                        </el-tab-pane>
+                    </el-tabs>
+
+                </div>
+            </div>
+        </el-container>
+    </div>
+
+    <script>
+        require([
+            'framework/core/usermanager',
+            'framework/api/identity/v1/Account',
+            'framework/api/message/v1/SMS',
+            'framework/api/message/v1/Image',
+            'vue',
+            'ELEMENT',
+            'axios',
+            "incss!framework/lib/element-ui/css/index.css"
+        ], function (
+            Usermanager,
+            Account,
+            SMS,
+            Image,
+            Vue,
+            ELEMENT,
+            axios
+        ) {
+                Vue.use(ELEMENT);
+
+                var vm = new Vue({
+                    el: '#app',
+                    data: {
+                        phoneLoginImageShow: false,
+                        phoneLoginImgCodeText: '',
+                        imageShow: false,
+                        ImgCodeText: '',
+                        imageUrl: './timg02.jpg',
+                        pageHeight: 400,
+                        resetDisabled: false,
+                        changePage: false,
+                        changeDisabled: false,
+                        tabPage: true,
+                        getchangCodeText: '获取验证码',
+                        getCodeText: '获取验证码',
+                        PhoneCodeDisabled: false,
+                        adminDisabled: false,
+                        CarCodeDisabled: false,
+                        PhoneDisabled: false,
+                        randomImgCodeID: '',
+                        //忘记密码表单数据
+                        ResetText: {
+                            Telephone: '',
+                            TenantID: '',
+                            Code: '',
+                            NewPassword: ''
+                        },
+                        Resetrules: {
+                            TenantID: [
+                                { required: true, message: '请填写门店号', trigger: 'blur' }
+                            ],
+                            Telephone: [
+                                { required: true, message: '请填写用户名', trigger: 'blur' },
+                                { required: true, message: '请填写正确的手机号码', trigger: 'blur', pattern: /^1[34578]\d{9}$/ }
+                            ],
+                            NewPassword: [
+                                { required: true, message: '请输入密码', trigger: 'blur' }
+                            ],
+                            Code: [
+                                { required: true, message: '请填验证码', trigger: 'blur' },
+                                { min: 6, max: 6, message: '请填写6位验证码', trigger: 'blur' }
+                            ]
+                        },
+                        //账号密码登陆
+                        adminLoginForm: {
+                            CustomerNum: '',
+                            Account: '',
+                            Password: ''
+                        },
+                        adminLoginRules: {
+                            CustomerNum: [
+                                { required: true, message: '请填写门店号', trigger: 'blur' }
+                            ],
+                            Account: [
+                                { required: true, message: '请填写用户名', trigger: 'blur' }
+                            ],
+                            Password: [
+                                { required: true, message: '请输入密码', trigger: 'blur' }
+                            ]
+                        },
+                        // 员工卡登陆
+                        CarCodeLogin: {
+                            Account: '',
+                            Password: '',
+                            TerminalHardID: ''
+                        },
+                        CarCodeLoginRules: {
+                            Account: [
+                                { required: true, message: '请读取员工卡号', trigger: 'blur' }
+                            ],
+                            Password: [
+                                { required: true, message: '请输入密码', trigger: 'blur' }
+                            ]
+                        },
+                        // 手机短信登陆
+                        PhoneLogin: {
+                            Account: '',
+                            Password: ''
+                        },
+                        PhoneLoginRules: {
+                            Account: [
+                                { required: true, message: '请填写正确的手机号码', trigger: 'blur', pattern: /^1[34578]\d{9}$/ }
+                            ],
+                            Password: [
+                                { required: true, message: '请填写验证码', trigger: 'blur' },
+                                { min: 6, max: 6, message: '请填写6位验证码', trigger: 'blur' }
+                            ]
+                        }
+                    },
+                    methods: {
+                        randomNum: function (max) {
+                            var Num = '';
+                            for (var i = 0; i < max; i++) {
+                                Num += Math.floor(Math.random() * 10);
+                            }
+                            return Num;
+                        },
+                        transFormData: function (obj) {
+                            var formData = {};
+                            for (value in obj) {
+                                //字符转base64
+                                formData[value] = btoa(encodeURIComponent(obj[value]));
+                            }
+                            //base64转字符
+                            // console.log(decodeURIComponent(atob(this.ResetText.Account)),'bs64');
+                            return formData;
+                        },
+                        //忘记密码提交
+                        ResetSubmit: function (refName) {
+                            var that = this;
+                            if (this.imageShow) {
+                                if (this.ImgCodeText == '') {
+                                    this.$notify.error({
+                                        title: '错误',
+                                        message: `请输入图形验证码`
+                                    });
+                                    return;
+                                }
+                            }
+                            var formData = this.transFormData(this.ResetText);
+
+                            this.$refs[refName].validate(function (valid) {
+                                if (valid) {
+                                    // 提交登陆表单数据
+                                    Account.ForgetPassword(formData)
+                                        .then(function (res) {
+                                            if (res.Success) {
+                                                //禁用提交按钮，防止重复提交表单数据
+                                                that.resetDisabled = true;
+                                                that.$notify({
+                                                    title: '成功',
+                                                    message: '密码重置成功',
+                                                    type: 'success'
+                                                });
+
+                                                //重置成功的操作，跳转页面
+                                                window.location = globalConfig.baseUrl + '/login/admin.html';
+
+                                            } else {
+                                                that.ResetText.NewPassword = '';
+                                                that.$notify.error({
+                                                    title: '错误',
+                                                    message: '密码重置失败！！！'
+                                                });
+
+                                            }
+                                        }, function (err) {
+                                            that.ResetText.NewPassword = '';
+                                        });
+                                } else {
+                                    return;
+                                }
+                            });
+                        },
+                        showElsePage: function (refName) {
+                            if (this.tabPage) {
+                                this.pageHeight = 450;
+                                this.$refs[refName].resetFields();
+
+                            } else {
+                                this.pageHeight = 400;
+                            }
+                            this.changePage = !this.changePage;
+                            this.tabPage = !this.tabPage;
+                        },
+
+                        //  忘记密码用的获取验证码操作
+                        changePagegetPhoneCode: function () {
+                            var time = 10,
+                                phonePass,
+                                that = this,
+                                sendData = {};
+
+                            var phonePass = /^1[34578]\d{9}$/.test(this.ResetText.Telephone);
+
+                            if (phonePass) {
+                                // 判断图形验证码是否已经出现
+                                if (this.imageShow) {
+                                    if (this.ImgCodeText == '') {
+                                        this.$notify.error({
+                                            title: '错误',
+                                            message: `请输入图形验证码`
+                                        });
+                                        return;
+                                    }
+                                    sendData.ImgCode = this.ImgCodeText;
+                                    sendData.ImgCodeID = this.randomImgCodeID;
+                                    sendSesetData();
+                                    return;
+                                }
+                                sendSesetData();
+                            }
+
+                            function sendSesetData() {
+
+                                sendData.Telephone = that.ResetText.Telephone;
+
+                                SMS.Send(sendData)
+                                    .then(function (res) {
+                                        if (res.ErrorCode === 0) {
+                                            that.changeDisabled = true;
+
+                                            that.$notify({
+                                                title: '成功',
+                                                message: '获取验证码成功',
+                                                type: 'success'
+                                            });
+                                            timeWait(time);
+
+                                        } else if (res.ErrorCode === 1) {
+                                            that.pageHeight = 520;
+                                            that.ImgCodeText = '';
+                                            that.randomImgCodeID = that.randomNum(12);
+                                            // 图形验证码出现
+                                            that.imageShow = true;
+
+                                            Image.LoginCode({ ImgCodeID: that.randomImgCodeID })
+                                                .then(function (res) {
+                                                    // that.imageUrl = res;
+                                                });
+                                        } else {
+                                            that.$notify.error({
+                                                title: '错误',
+                                                message: `获取验证码错误,${res.Msg}`
+                                            });
+                                        }
+                                    });
+                            }
+
+                            function timeWait(time) {
+                                setTimeout(function () {
+                                    if (time >= 0) {
+                                        that.getchangCodeText = `${time}秒再获取`;
+                                        time--;
+                                        timeWait(time);
+                                    } else {
+                                        that.getchangCodeText = `获取验证码`;
+                                        that.changeDisabled = false;
+                                    }
+                                }, 1000);
+                            }
+                        },
+                        //  手机短信登陆用的获取验证码操作
+                        GetPhoneCode: function () {
+                            
+                            var time = 10,
+                                phonePass,
+                                that = this;
+                            var regexp = new RegExp(/^1[34578]\d{9}$/);
+
+                            phonePass = regexp.test(this.PhoneLogin.Account);
+
+                            if (phonePass) {
+                                if (this.phoneLoginImageShow) {
+                                    if (this.phoneLoginImgCodeText == '') {
+                                        this.$notify.error({
+                                            title: '错误',
+                                            message: `请输入图形验证码`
+                                        });
+                                        return;
+                                    }
+                                    sendPhoneLoginData();
+                                    return;
+                                }
+                                sendPhoneLoginData();
+                            }
+
+                            function sendPhoneLoginData() {
+                                SMS.Send({ Telephone: that.PhoneLogin.Account })
+                                    .then(function (res) {
+                                        if (res.ErrorCode === 0) {
+                                            that.PhoneCodeDisabled = true;
+                                            timeWait(time);
+
+                                            that.$notify({
+                                                title: '成功',
+                                                message: '获取验证码成功',
+                                                type: 'success'
+                                            });
+                                        } else if (res.ErrorCode === 1) {
+
+                                            var randomImgCodeID = that.randomNum(12);
+                                            // that.PhoneCodeDisabled = true;
+                                            // 图形验证码出现
+                                            that.phoneLoginImageShow = true;
+
+                                            Image.LoginCode({ ImgCodeID: randomImgCodeID })
+                                                .then(function (res) {
+                                                    // that.imageUrl = res;
+                                                });
+                                        } else {
+                                            that.$notify.error({
+                                                title: '错误',
+                                                message: `获取验证码错误,${res.Msg}`
+                                            });
+                                        }
+                                    });
+                            }
+
+                            function timeWait(time) {
+                                setTimeout(function () {
+                                    if (time >= 0) {
+                                        that.getCodeText = `${time}秒再获取`;
+                                        time--;
+                                        timeWait(time);
+                                    } else {
+                                        that.getCodeText = `获取验证码`;
+                                        that.PhoneCodeDisabled = false;
+                                    }
+                                }, 1000);
+                            }
+
+                        },
+                        // 短信登录
+                        PhoneNumSubmit: function (refName) {
+                            var that = this;
+
+                            if (this.phoneLoginImageShow) {
+                                if (this.phoneLoginImgCodeText == '') {
+                                    this.$notify.error({
+                                        title: '错误',
+                                        message: `请输入图形验证码`
+                                    });
+                                    return;
+                                }
+                            }
+
+                            var formData = this.transFormData(this.PhoneLogin);
+                            formData.AccountType = 'TelephoneCode';
+
+                            this.$refs[refName].validate(function (valid) {
+                                if (valid) {
+                                    // 提交登陆表单数据
+                                    Account.Login(formData)
+                                        .then(function (res) {
+                                            //禁用提交按钮，防止重复提交表单数据
+                                            that.disabled = true;
+                                            //存放登陆成功后返回的所有信息，包括token，sessionStorage
+                                            Usermanager.login(res);
+                                        }, function (err) {
+                                            that.PhoneLogin.Password = '';
+                                        });
+                                } else {
+                                    return;
+                                }
+                            });
+                        },
+                        // 员工号登录
+                        CarCodeSubmit: function (refName) {
+                            var that = this;
+
+                            var formData = this.transFormData(this.CarCodeLogin);
+                            formData.TerminalHardID = this.CarCodeLogin.TerminalHardID;
+                            formData.AccountType = 'Card';
+
+                            this.$refs[refName].validate(function (valid) {
+                                if (valid) {
+                                    // 提交登陆表单数据
+                                    Account.Login(formData)
+                                        .then(function (res) {
+                                            //禁用提交按钮，防止重复提交表单数据
+                                            that.CarCodeDisabled = true;
+                                            //存放登陆成功后返回的所有信息，包括token，sessionStorage
+                                            Usermanager.login(res);
+                                        }, function (err) {
+                                            that.CarCodeLogin.Password = '';
+                                        });
+                                } else {
+                                    return;
+                                }
+                            });
+                        },
+                        // 账号密码登陆
+                        adminSubmit: function (refName) {
+                            var that = this;
+                            var formData = this.transFormData(this.adminLoginForm);
+                            formData.AccountType = 'Telephone';
+
+                            this.$refs[refName].validate(function (valid) {
+                                if (valid) {
+                                    //禁用提交按钮，防止重复提交表单数据
+                                    that.adminDisabled = true;
+                                    // 提交登陆表单数据
+                                    Account.Login(formData)
+                                        .then(function (res) {
+                                            that.adminDisabled = false;
+                                            //存放登陆成功后返回的所有信息到sessionStorage
+                                            Usermanager.login(res);
+                                        }, function (err) {
+                                            that.adminDisabled = false;
+                                            that.adminLoginForm.Password = '';
+                                        }).catch(function () {
+                                            that.adminDisabled = false;
+                                        });
+                                } else {
+                                    return;
+                                }
+                            });
+                        }
+
+                    },
+                    created: function () {
+                        Usermanager.clearUser();
+                    }
+                });
+
+            });
+    </script>
+</body>
+
+</html>
