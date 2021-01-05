@@ -13,7 +13,7 @@
   "author": "YCH-FE",
   "license": "",
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.21.1",
     "element-ui": "^2.4.0",
     "fabric": "^2.3.0",
     "lodash": "^4.17.4",
