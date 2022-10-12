@@ -15,7 +15,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "element-ui": "^2.4.0",
-    "fabric": "^2.3.0",
+    "fabric": "^5.2.4",
     "lodash": "^4.17.4",
     "requirejs": "^2.3.5",
     "vue": "^2.5.13",
