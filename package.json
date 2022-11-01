@@ -23,7 +23,7 @@
     "vue-router": "^2.8.1"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-connect": "^5.5.0",
     "gulp-livereload": "^4.0.0",
     "http-proxy-middleware": "^0.18.0"
