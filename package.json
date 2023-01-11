@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-connect": "^5.5.0",
+    "gulp-connect": "^5.7.0",
     "gulp-livereload": "^4.0.0",
     "http-proxy-middleware": "^0.18.0"
   }
